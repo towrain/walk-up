@@ -1,0 +1,36 @@
+<div ng-hide="c.data.showTricker" id="msg-overlay" >
+  <div class="overlay-content3">
+    <div>
+      <div style="position: absolute;width:680px;text-align:right;margin-top:-90px;">
+        <i class="fa fa-times-circle-o fa-4x" ng-click="c.data.showTricker = !c.data.showTricker; ticker.content = '';ticker.contentExpire = ''" style="color: black;"> </i>
+      </div>
+      <form name="newTickerForm" ng-submit="c.addTicker()"> 
+
+        <div class="col-sm-10 col-sm-offset-1">
+          <div class="form-group">
+            <label class="field-label" style="font-size:20px;" for="delegate-delegate-new">
+              <span class="field-decorations"><span class="fa fa-2x fa-asterisk mandatory" ng-class="{'mandatory-filled': ticker.content }" title="Required" style="padding-right: .25em" aria-label="Required " aria-hidden="false"></span></span>
+              Ticker Content</label>
+            <input ng-model="ticker.content" style="border-radius: 4px; padding: 10px; font-size:20px; color:#333; resize:none; width:100%;"  ng-required="true"  />           
+          </div>
+        </div>
+        <div class="col-sm-10 col-sm-offset-1">
+          <div class="form-group">
+            <!--<button type="button" class="btn btn-block btn-danger btn-lg" tabindex="0"  ng-hide="c.data.displayButton" ng-click="ShowConfirm()"   type="remove" value ="remove">Remove Current Ticker</button>-->
+            <button type="button" class="btn btn-block btn-primary btn-lg" tabindex="0"  ng-disabled="!newTickerForm.$valid" type="submit" value ="Add">${Submit}</button> <!-- ng-click="c.addToQueue(data.visit)" -->
+          </div>
+        </div>  
+      </form>
+      <div class="col-sm-10 col-sm-offset-1">
+        <div class="form-group">
+          <div ng-if="c.data.loader"  class="text-center wrapper-lg">
+            <img src="anz_loading.gif" height="50px;" role="presentation"> 
+          </div>
+          <div ng-if="c.data.displayTickerResult" style="margin-top:20px; color: #FFFFFF; padding: 15px; border-radius: 4px; background-color: green;">
+            <p>Ticker has been submitted</p>
+          </div>
+        </div> 
+      </div>
+    </div>
+  </div>
+</div>
